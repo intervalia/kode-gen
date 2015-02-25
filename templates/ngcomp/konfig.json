@@ -1,0 +1,73 @@
+{
+  "title": "Angular Component",
+  "cmdLine": {
+    "c": "component",
+    "m": "module",
+    "d": "directive"
+  },
+  "params": [
+    {
+      "key": "component",
+      "desc": "Name of the component",
+      "required": true
+    },
+    {
+      "key": "module",
+      "desc": "Name of the angular module",
+      "required": true
+    },
+    {
+      "key": "incDirective",
+      "desc": "Include a directive?",
+      "options": ["y", "n"],
+      "optionVals": {"y": true, "n": false},
+      "defaultOption": "y"
+    },
+    {
+      "key": "directive",
+      "desc": "Name of the directive",
+      "default": "$(component)",
+      "cond": "incDirective"
+    },
+    {
+      "key": "serviceType",
+      "desc": "Type of Angular Service for this component",
+      "options": ["none", "service", "factory", "provider"],
+      "defaultOption": "none"
+    },
+    {
+      "key": "serviceName",
+      "desc": "Name of the $(serviceType)",
+      "default": "$(component)",
+      "cond": "serviceType",
+      "required": true
+    }
+  ],
+  "exclude": [
+    {
+      "key": "incDirective",
+      "value": false,
+      "files": [ "$(component).directive.js" ]
+    },
+    {
+      "key": "serviceType",
+      "value": "none",
+      "files": [ "$(component).factory.js", "$(component).service.js", "$(component).provider.js" ]
+    },
+    {
+      "key": "serviceType",
+      "value": "service",
+      "files": [ "$(component).factory.js", "$(component).provider.js" ]
+    },
+    {
+      "key": "serviceType",
+      "value": "factory",
+      "files": [ "$(component).service.js", "$(component).provider.js" ]
+    },
+    {
+      "key": "serviceType",
+      "value": "provider",
+      "files": [ "$(component).factory.js", "$(component).service.js" ]
+    }
+  ]
+}

@@ -1,2 +1,3 @@
 # kode-gen
-Code generator application. Create your own templates to auto-generate.
+
+Code Generator. Create custom templates that can auto-generate into your new or existing projects.
