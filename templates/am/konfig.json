@@ -1,0 +1,40 @@
+{
+  "title": "Asset Manager Module",
+  "cmdLine": {
+    "m": "module"
+  },
+  "params": [
+    {
+      "key": "module",
+      "desc": "Name of the Asset Manager module",
+      "required": true,
+      "default": "$(__dirname)"
+    },
+    {
+      "key": "locales",
+      "desc": "Include Locales",
+      "options": ["y", "n"],
+      "optionVals": {"y": true, "n": false},
+      "defaultOption": "y"
+    },
+    {
+      "key": "templates",
+      "desc": "Include templates folder",
+      "options": ["y", "n"],
+      "optionVals": {"y": true, "n": false},
+      "defaultOption": "y"
+    }
+  ],
+  "exclude": [
+    {
+      "key": "locales",
+      "value": false,
+      "files": [ "locales" ]
+    },
+    {
+      "key": "templates",
+      "value": false,
+      "files": [ "templates" ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 (function() {
-  var version = "0.1.0";
+  var version = "0.2.0";
   var nodeVer = process.versions.node;
   var platform = process.platform;
   var processArgs = require("./lib/args");
@@ -12,6 +12,9 @@
   var AdmZip = require("adm-zip");
   var defaultTemplate = process.env.APPGET_TEMPLATE || "";
   var cwd = process.cwd();
+  var defaultArgs = {
+    "__dirname": path.basename(cwd)
+  };
   var argParams = {
     "t": "template",
     "o": "output"
@@ -20,7 +23,6 @@
   var tItem;
   var fileList = fs.readdirSync(templatePath);
   var files = {};
-
   console.log("\n\nKODEGEN version "+version+"\n");
 
   fileList.forEach(function(fileName) {
@@ -46,10 +48,10 @@
     }
   });
 
-  var args = processArgs(process.argv.slice(2), argParams);
+  var args = processArgs(process.argv.slice(2), argParams, defaultArgs);
   var template = args.template || defaultTemplate;
   var outputPath = args.output || cwd;
-  var key, indent = 0, title;
+  var key, indent = 0, title, count = 0;
   //console.log("args:", args);
   //console.log("templates", JSON.stringify(files));
 
@@ -73,7 +75,7 @@
           argParams[key] = retObj.config.cmdLine[key];
         }
       }
-      args = processArgs(process.argv.slice(2), argParams);
+      args = processArgs(process.argv.slice(2), argParams, defaultArgs);
     }
 
     if (retObj.config.params && retObj.config.params.length > 0) {
@@ -86,11 +88,14 @@
     }
     else {
       fileList = exclude(retObj.config.exclude, args, fileList);
+      console.log("\nProcessing...");
       count = templates.write(outputPath, fileList, args);
       console.log("\n"+count+" files written.\n");
     }
   }
   else {
-    console.log("\nThe template '"+template+"' was not found.\n");
+    console.log("The template '"+template+"' was not found. Please provide a template using -t:template.");
+    console.log("Current templates are:", Object.keys(files));
+    console.log("");
   }
 })();

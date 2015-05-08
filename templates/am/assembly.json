@@ -1,0 +1,6 @@
+{
+  "files": [
+    "src/$(module).js"
+  ],
+  "simpleWrap": true
+}

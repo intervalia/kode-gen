@@ -17,17 +17,9 @@
       "required": true
     },
     {
-      "key": "incDirective",
-      "desc": "Include a directive?",
-      "options": ["y", "n"],
-      "optionVals": {"y": true, "n": false},
-      "defaultOption": "y"
-    },
-    {
       "key": "directive",
       "desc": "Name of the directive",
-      "default": "$(component)",
-      "cond": "incDirective"
+      "default": "$(component)"
     },
     {
       "key": "serviceType",
@@ -44,11 +36,6 @@
     }
   ],
   "exclude": [
-    {
-      "key": "incDirective",
-      "value": false,
-      "files": [ "$(component).directive.js" ]
-    },
     {
       "key": "serviceType",
       "value": "none",
