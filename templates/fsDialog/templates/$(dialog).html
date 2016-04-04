@@ -1,0 +1,14 @@
+<div class="$(className)">
+  <fs-dialog data-is-open="isShowing" data-working="isWorking" data-close="close('close')" data-dialog-key="$(key)">
+    <div data-test="title" section="title">{TITLE}</div>
+    <div section="main">
+      <div>SAMPLE CONTENT</div>
+      <p>Replace with your content</p>
+      <div class="fs-error" ng-if="errorStr">{{errorStr}}</div>
+    </div>
+    <div section="buttons">
+      <button type="button" class="fs-button fs-button—recommended" data-ng-click="doSomething()">{BUTTON_OK}</button>
+      <button type="button" class="fs-button fs-button—minor fs-button--tertiary" data-ng-click="close('cancel')" >{BUTTON_CANCEL}</button>
+    </div>
+  </fs-dialog>
+</div>

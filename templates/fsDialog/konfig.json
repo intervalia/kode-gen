@@ -1,0 +1,45 @@
+{
+  "title": "code for custom fsDialog",
+  "cmdLine": {
+    "m": "module",
+    "d": "dialog",
+    "cn": "className",
+    "k": "key",
+    "dt": "dlgType",
+    "dir": "directive"
+  },
+  "params": [
+    {
+      "key": "module",
+      "desc": "Name of the Angular module for this dialog (Ex: 'fs.myDialog')",
+      "required": true,
+      "default": "$(__dirname)"
+    },
+    {
+      "key": "dialog",
+      "desc": "Name of dialog (Ex: 'fsMyDialog')",
+      "required": true
+    },
+    {
+      "key": "key",
+      "desc": "Dialog name used for dialog identification (Ex: 'fs:myDialog')",
+      "required": true
+    },
+    {
+      "key": "directive",
+      "desc": "Name of directive (Ex: 'fs-my-dialog')",
+      "required": true
+    },
+    {
+      "key": "className",
+      "desc": "CSS ClassName for outer wrapper (Ex: 'fs-my-dialog')",
+      "required": true,
+      "default": "$(directive)"
+    },
+    {
+      "key": "dlgType",
+      "desc": "Enum name of dialog. (Ex: 'MY_DIALOG')",
+      "required": true
+    }
+  ]
+}

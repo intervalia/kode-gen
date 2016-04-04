@@ -1,0 +1,9 @@
+{
+  "files": [
+    "$(dialog).module.js",
+    "$(dialog).factory.js",
+    "$(dialog).controller.js",
+    "$(dialog).directive.js"
+  ],
+  "simpleWrap": true
+}
