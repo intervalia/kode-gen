@@ -1,0 +1,53 @@
+<template>
+  <style>
+  </style>
+  <!-- place your DOM here -->
+</template>
+<script>
+  function querySelector(selector) {
+    var script = document._currentScript || document.currentScript;
+    return script.ownerDocument.querySelector(selector);
+  };
+
+  var template = querySelector('template');
+
+  class flagIcon extends HTMLElement {
+    static get observedAttributes() {
+      return ['sample'];
+    }
+    get sample() {
+      return this.getAttribute('sample');
+    }
+    set sample(val) {
+      if (val) {
+        this.setAttribute('sample', val);
+      } else {
+        this.removeAttribute('sample');
+      }
+    }
+    createdCallback() {
+      this.createShadowRoot();
+      this.shadowRoot.appendChild(document.importNode(template.content, true));
+    }
+
+    attachedCallback() {
+      if (this.sample) {
+        // Do something if the developer supplied a value for `sample`
+        //this._fetchData().then(data => this._updateTemplate(data));
+      }
+    }
+
+    attributeChangedCallback() {
+    }
+
+    _fetchData() {
+      //return fetch('./data.json').then(res => res.json());
+    }
+    _updateTemplate(data) {
+      var root = this.shadowRoot;
+      //root.querySelector('#storage').textContent = data.message;
+    }
+  }
+
+  document.registerElement('flag-icon', flagIcon);
+</script>

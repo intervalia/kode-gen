@@ -8,6 +8,9 @@
   },
   "author": "Michael G Collins <intervalia@gmail.com>",
   "license": "MIT",
+  "bin" : {
+    "kodegen" : "./kodegen.js"
+  },
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.9.2"

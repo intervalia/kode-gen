@@ -1,0 +1,74 @@
+{
+  "title": "Angular 1 Component",
+  "cmdLine": {
+    "c": "component",
+    "m": "module",
+    "d": "directive"
+  },
+  "params": [
+    {
+      "key": "component",
+      "desc": "Name of the component",
+      "required": true,
+      "default": "$(__dirname)"
+    },
+    {
+      "key": "module",
+      "desc": "Name of the angular module",
+      "required": true,
+      "default": "$(__dirname)"
+    },
+    {
+      "key": "directive",
+      "desc": "Name of the directive",
+      "default": "$(component)"
+    },
+    {
+      "key": "serviceType",
+      "desc": "Type of Angular Service for this component",
+      "options": ["none", "service", "factory", "provider"],
+      "defaultOption": "factory"
+    },
+    {
+      "key": "serviceName",
+      "desc": "Name of the $(serviceType)",
+      "default": "$(component)",
+      "cond": "serviceType",
+      "required": true
+    },
+    {
+      "key": "locales",
+      "desc": "Include Locales",
+      "options": ["y", "n"],
+      "optionVals": {"y": true, "n": false},
+      "defaultOption": "y"
+    }
+  ],
+  "exclude": [
+    {
+      "key": "serviceType",
+      "value": "none",
+      "files": [ "$(component).factory.js", "$(component).service.js", "$(component).provider.js" ]
+    },
+    {
+      "key": "serviceType",
+      "value": "service",
+      "files": [ "$(component).factory.js", "$(component).provider.js" ]
+    },
+    {
+      "key": "serviceType",
+      "value": "factory",
+      "files": [ "$(component).service.js", "$(component).provider.js" ]
+    },
+    {
+      "key": "serviceType",
+      "value": "provider",
+      "files": [ "$(component).factory.js", "$(component).service.js" ]
+    },
+    {
+      "key": "locales",
+      "value": false,
+      "files": [ "locales" ]
+    }
+  ]
+}
