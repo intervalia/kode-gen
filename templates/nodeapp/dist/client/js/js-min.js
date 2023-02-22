@@ -1,1 +1,0 @@
-!function(){angular.module("test",[])}(window,document);
