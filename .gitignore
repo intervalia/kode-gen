@@ -1,0 +1,13 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+lib-cov
+coverage
+*.lcov
+.nyc_output
+dist
+node_modules/
+static/js/components/
+.env
+.env.test
